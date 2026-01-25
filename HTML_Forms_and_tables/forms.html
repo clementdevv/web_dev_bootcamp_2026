@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Demo</title>
+</head>
+
+<body>
+    <h1>Forms Demo</h1>
+
+    <form action="/tacos">
+        <p>
+            <label for="username">Enter a username</label>
+            <input id="username" type="text" placeholder="username" name="username">
+        </p>
+        <p>
+            <label for="password">Enter a password</label>
+            <input id="password" type="password" placeholder="password" name="password">
+        </p>
+        <p>
+            <label for="color">Select a color</label>
+            <input id="pick_color" type="color" placeholder="Pick your favourite color" name="color">
+        </p>
+        <p>
+            <label for="age">Enter your age</label>
+            <input id="age" type="number" placeholder="Submit" name="number">
+        </p>
+        <p>
+            Choose your gender:
+        </p>
+        <div>
+            <input type="checkbox" name="male" id="male" checked>
+            <label for="male">Male</label>
+        </div>
+
+        <div>
+            <input type="checkbox" name="female" id="female">
+            <label for="female">Female</label>
+        </div>
+
+        <!-- For radio buttons: -->
+        <div>
+            Select your shirt size below:
+        </div>
+        <p>
+            <label for="xs">Extra small</label>
+            <input type="radio" name="size" id="xs" value="xs">
+            <label for="m">Medium</label>
+            <input type="radio" name="size" id="m" value="m">
+            <label for="xl">Extra large</label>
+            <input type="radio" name="size" id="xl" value="xl">
+        </p>
+
+        <!-- <p>
+            <select name="" id="">
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </p> -->
+
+        <p>
+            <label for="English">English proficiency:</label>
+            <input type="range" id="English" min="0" max="100" step="1" name="eng_level">
+            <label for="French">French proficiency:</label>
+            <input type="range" id="English" min="0" max="100" step="1" name="fre_level" value="50">
+        </p>
+
+        <!-- <p>
+            <textarea name="" id=""></textarea>
+        </p> -->
+        
+        <button>
+            Submit
+        </button>
+
+
+        <!-- Other useful type attributes: -->
+        <!-- <input type="search">
+        <input type="date">
+        <input type="image">
+        <input type="month">
+        <input type="week"> 
+        <input type="url">
+        <input type="file">
+        <input type="button">
+        <input type="checkbox">
+        <input type="email">
+        <input type="number"> -->
+    </form>
+</body>
+
+</html>
