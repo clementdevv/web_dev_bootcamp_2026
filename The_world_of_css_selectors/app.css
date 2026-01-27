@@ -1,0 +1,103 @@
+/* selector {
+    property: value;
+} */
+
+/* 
+1. Universal selector example:
+
+* {
+    color:cyan
+}
+
+*/
+
+body {
+    background-color: #f1faee;
+}
+
+button {
+    font-size: 30px;
+    background-color: #a8dadc;
+}
+
+h1, h2 {
+    color: darkslateblue;
+}
+/* example usage of the ID selector is as below: */
+
+#signup {
+    background-color: 1d3557;
+    color: #f1faee;
+}  
+
+/* example usage of the Class selector is as below: */
+.tag {
+    background-color: #e63946;
+    font-size: 16;
+}
+
+/* example usage of the Descendant selector is as below: */
+
+footer a {
+    color: #e63946;
+}
+.post a {
+    color: #457b9d;
+}
+
+/* Adjacent - select only the paragraphs that are immediately preceded by a certain element
+ Direct descendant or Direct child selectors - select only the direct children of a specified element; one level down
+  */
+
+input + button {
+    background-color: pink;
+    /* This is an adjascent selector */
+}
+
+h2 + button {
+    font-size: 20px;
+    background-color: magenta;
+    /* This is an adjascent selector */
+}
+
+footer > a {
+    color: greenyellow;
+}
+
+/* The Attribute selector: */  
+
+input[type="password"] {
+    color: greenyellow;
+}
+
+.post button:hover {
+    background-color: darkorange;
+}
+
+.post button:active {
+    background-color: #02c39a;
+}
+
+/* Cascade: The order in which things are declared in CSS matter; the latest overrides the initial */
+
+/* Specificity */
+
+/* Other pseudoclasses: 
+    :checked
+    :first 
+    :first-child
+    :hover  
+    :not 
+    :nth-child 
+    :nth-of-type
+*/  
+
+
+/* Commonly used pseudoelements:  
+    ::after  
+    ::before 
+    ::first-letter 
+    ::first-line 
+    ::selection
+
+*/
