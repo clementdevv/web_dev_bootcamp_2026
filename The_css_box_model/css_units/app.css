@@ -1,0 +1,51 @@
+/* 1. THE ROOT (REM) */
+/* The browser default is usually 16px. 1rem = 16px. */
+html {
+    font-size: 16px; 
+}
+
+/* REMs always look at the HTML (root) font-size. 
+   2rem = 32px, no matter where this H2 is placed. */
+.rem-title {
+    font-size: 2rem;
+    background-color: #ecf0f1;
+}
+
+/* 2. THE PARENT (EM) */
+/* EMs look at their IMMEDIATE PARENT. */
+.parent-container {
+    font-size: 20px; /* Changing this will change everything inside! */
+    border: 2px solid #2980b9;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* 1.5em means 1.5 times the parent (20px * 1.5 = 30px) */
+.parent-container h2 {
+    font-size: 1.5em; 
+}
+
+/* 1em means "same size as parent" (20px) */
+.parent-container p {
+    font-size: 1em;
+}
+
+/* 3. THE "COMPOUNDING" PROBLEM WITH EMs */
+/* This span looks at the <p>, which looks at the <article>. 
+   If you use EMs here, it multiplies again! */
+.parent-container span {
+    font-size: 0.5em; /* This becomes 10px (half of the paragraph) */
+    display: block;
+    color: red;
+}
+
+/* 4. THE REM ADVANTAGE */
+/* Even though this box is at the bottom, 1.2rem is always 19.2px 
+   because it ignores parents and only looks at the root HTML. */
+.rem-box {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    padding: 1rem;
+    background-color: #27ae60;
+    color: white;
+}

@@ -1,0 +1,18 @@
+/* app.css */
+
+.box-container {
+    /* 1. Width and Height: Defining the size of the content area */
+    width: 300px;
+    height: 200px;
+
+    /* 2. Background Color: Making the box visible */
+    background-color: #ff4757; /* A vivid coral red */
+
+    /* 3. Text Styling: Just to make the label readable */
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

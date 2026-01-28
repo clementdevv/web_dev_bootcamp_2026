@@ -1,0 +1,51 @@
+/* Styling the H1 with 2-value shorthand */
+h1 {
+    background-color: #f1c40f;
+    /* 2 values: [Top/Bottom] [Left/Right] */
+    padding: 20px 50px; 
+    text-align: center;
+    border-bottom: 5px solid black;
+}
+
+.base-box {
+    width: 300px;
+    height: 100px; /* Reduced height to see padding better */
+    margin-bottom: 20px;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* Box 1: 1-value shorthand (Equal all sides) */
+#box-one {
+    background-color: #3498db;
+    border: 2px solid #2c3e50;
+    padding: 30px; /* 30px on all 4 sides */
+}
+
+/* Box 2: 3-value shorthand (Unique Top, Shared Sides, Unique Bottom) */
+#box-two {
+    background-color: #2ecc71;
+    border: 2px solid #145a32;
+    /* [Top] [Left/Right] [Bottom] */
+    padding: 10px 60px 40px; 
+}
+
+/* Box 3: 4-value shorthand (The Clockwise Rule) */
+#box-three {
+    background-color: #e67e22;
+    border: 2px solid #6e2c00;
+    /* [Top] [Right] [Bottom] [Left] -> Think of a clock! */
+    padding: 5px 20px 50px 80px;
+}
+
+/* Styling the Button */
+#main-btn {
+    background-color: #9b59b6; /* Purple */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Common button padding: smaller top/bottom, larger left/right */
+    padding: 15px 40px;
+    font-size: 16px;
+}

@@ -1,0 +1,43 @@
+/* --- 1. LEARNING INLINE-BLOCK --- */
+/* Divs are block by default (they would stack vertically). 
+   We use inline-block to keep them side-by-side BUT keep their width/height! */
+.inline-box {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: #e74c3c;
+    color: white;
+    margin: 10px;
+    text-align: center;
+    line-height: 100px; /* Vertically centers text */
+}
+
+/* --- 2. CHANGING DEFAULT NATURE --- */
+
+/* H1 is naturally BLOCK. We flip it to INLINE. 
+   Notice they will now sit on the same line! */
+.change-to-inline {
+    display: inline;
+    background-color: #f1c40f;
+    font-size: 20px;
+}
+
+/* Span is naturally INLINE. We flip it to BLOCK. 
+   Notice they will now jump to new lines and take full width! */
+.change-to-block {
+    display: block;
+    background-color: #3498db;
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+/* --- 3. THE SPAN IN A PARAGRAPH --- */
+.special-span {
+    background-color: #2ecc71;
+    font-weight: bold;
+    /* Watch what happens if you change this to 'block'—it will 
+       break the paragraph into three pieces! */
+    display: inline; 
+    padding: 5px;
+}
