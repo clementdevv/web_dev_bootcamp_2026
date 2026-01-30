@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox & Responsive Mastery</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">FlexMaster</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Concepts</a></li>
+            <li><a href="#">Layouts</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">☰</div>
+    </nav>
+
+    <header class="hero">
+        <h1>Flexbox & Media Queries Lab</h1>
+        <p>Resize your browser window to see the magic happen!</p>
+    </header>
+
+    <main class="container">
+        
+        <section class="demo-section">
+            <h2>1. Flex Alignment & Direction</h2>
+            <div class="flex-container flex-dir-row">
+                <div class="box box-1">Box 1 (Align-Self: Start)</div>
+                <div class="box box-2">Box 2 (Align-Self: Center)</div>
+                <div class="box box-3">Box 3 (Align-Self: End)</div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2>2. Wrap & Align-Content</h2>
+            <div class="flex-container flex-wrap-demo">
+                <div class="box">Item</div>
+                <div class="box">Item</div>
+                <div class="box">Item</div>
+                <div class="box">Item</div>
+                <div class="box">Item</div>
+                <div class="box">Item</div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2>3. Grow, Shrink, & Basis</h2>
+            <div class="flex-container">
+                <div class="box grow-1">Grow: 1</div>
+                <div class="box grow-2">Grow: 2</div>
+                <div class="box basis-fixed">Fixed Basis: 200px</div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
