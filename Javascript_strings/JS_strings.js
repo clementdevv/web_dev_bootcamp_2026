@@ -14,6 +14,8 @@ specificChar = animal[2]
 console.log(specificChar)
 
 console.log(animal.length)
+let val = animal.indexOf("u")
+console.log(val)
 
 // String concatenation 
 let venue = "Paradise"
