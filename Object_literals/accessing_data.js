@@ -10,7 +10,7 @@ const user = {
 console.log(user.username); 
 
 // 2. Bracket Notation (Required for keys with spaces or variables)
-console.log(user["current status"]); // "Active"
+console.log(user["current status"]); 
 
 let query = "points";
 console.log(user[query]);
