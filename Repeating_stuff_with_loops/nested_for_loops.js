@@ -22,3 +22,5 @@ for (let i = 0; i < seatingChart.length; i++) {
         console.log(row[j]);
     }
 }
+
+
