@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML, innerText & textContent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>innerHTML · innerText · textContent</h1>
+        <p class="subtitle">Three ways to read and write element content — each with different behaviour</p>
+
+        <div class="panels">
+            <div class="panel">
+                <label>innerHTML</label>
+                <div id="html-box" class="box">Hello, <strong>World</strong>! <span class="tag">I have tags.</span></div>
+                <div class="btn-group">
+                    <button onclick="readInnerHTML()">Read</button>
+                    <button onclick="writeInnerHTML()">Write HTML</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <label>innerText</label>
+                <div id="text-box" class="box">
+                    Hello, <strong>World</strong>!
+                    <span style="display:none">Hidden text</span>
+                </div>
+                <div class="btn-group">
+                    <button onclick="readInnerText()">Read</button>
+                    <button onclick="writeInnerText()">Write Text</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <label>textContent</label>
+                <div id="content-box" class="box">
+                    Hello, <strong>World</strong>!
+                    <span style="display:none">Hidden text</span>
+                </div>
+                <div class="btn-group">
+                    <button onclick="readTextContent()">Read</button>
+                    <button onclick="writeTextContent()">Write Content</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="output" class="output">Click a Read button to see the value logged here...</div>
+
+        <div class="code-note">
+            <strong>innerHTML</strong> — reads/writes raw HTML markup (tags included). Risk: XSS if using user input.<br>
+            <strong>innerText</strong> — reads only <em>visible</em> text (respects CSS display:none).<br>
+            <strong>textContent</strong> — reads ALL text including hidden nodes. Faster and safer than innerHTML.
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

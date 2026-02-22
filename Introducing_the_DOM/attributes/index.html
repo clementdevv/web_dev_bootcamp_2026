@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attributes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Attributes</h1>
+        <p class="subtitle">Get, set, check, and remove HTML attributes on elements</p>
+
+        <div class="demo-area">
+            <a id="demo-link" href="https://example.com" target="_blank" data-category="demo">
+                I'm a link — inspect my attributes!
+            </a>
+
+            <img id="demo-img" src="https://placehold.co/300x120/1a1a2e/7c6cfc?text=Original+Image" alt="Demo image" width="300">
+        </div>
+
+        <div class="controls">
+            <button onclick="getAttr()">getAttribute</button>
+            <button onclick="setAttr()">setAttribute</button>
+            <button onclick="hasAttr()">hasAttribute</button>
+            <button onclick="removeAttr()">removeAttribute</button>
+            <button onclick="changeImg()">Change img src</button>
+            <button onclick="resetAll()">Reset</button>
+        </div>
+
+        <div id="output" class="output">Click a button to see attribute operations...</div>
+
+        <div class="code-note">
+            <code>el.getAttribute("href")</code> — read an attribute value<br>
+            <code>el.setAttribute("href", "url")</code> — set or update an attribute<br>
+            <code>el.hasAttribute("target")</code> — returns true/false<br>
+            <code>el.removeAttribute("target")</code> — removes the attribute entirely
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

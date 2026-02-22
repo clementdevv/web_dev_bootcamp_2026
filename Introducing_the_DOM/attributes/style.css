@@ -1,0 +1,103 @@
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #1a1505;
+    color: #f0eacc;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container { max-width: 620px; width: 100%; text-align: center; }
+
+h1 { font-size: 2.2rem; color: #f0c040; margin-bottom: 0.3rem; }
+.subtitle { color: #776; margin-bottom: 2rem; font-size: 0.95rem; }
+
+.demo-area {
+    background: #211e08;
+    border: 1px solid #3a3010;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+#demo-link {
+    color: #f0c040;
+    text-decoration: none;
+    border: 1px solid #f0c040;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+#demo-link:hover { background: #f0c040; color: #111; }
+
+#demo-img {
+    border-radius: 8px;
+    border: 2px solid #3a3010;
+    max-width: 100%;
+    transition: all 0.3s;
+}
+
+.controls {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+
+button {
+    background: #3a2e00;
+    color: #f0c040;
+    border: 1px solid #f0c040;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+button:hover { background: #f0c040; color: #111; }
+
+.output {
+    background: #0d0c00;
+    border: 1px dashed #3a3010;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #c8b860;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    min-height: 56px;
+    white-space: pre-wrap;
+}
+
+.code-note {
+    background: #111;
+    border-left: 3px solid #f0c040;
+    border-radius: 6px;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.83rem;
+    color: #aaa;
+    text-align: left;
+    line-height: 2;
+}
+
+code {
+    background: #211e08;
+    color: #f0c040;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+}
