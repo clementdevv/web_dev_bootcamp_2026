@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector & querySelectorAll</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>querySelector <span>&</span> querySelectorAll</h1>
+        <p class="subtitle">Select elements using the full power of CSS selectors</p>
+
+        <div class="demo-area">
+            <div class="row">
+                <div class="item" id="special">Special Item (has ID)</div>
+                <div class="item active">Active Item</div>
+                <div class="item">Regular Item</div>
+            </div>
+            <div class="row">
+                <div class="item">Row 2 - A</div>
+                <div class="item active">Row 2 - Active</div>
+                <div class="item last">Row 2 - Last</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="selectFirst()">querySelector — first .item</button>
+            <button onclick="selectById()">querySelector — #special</button>
+            <button onclick="selectAllActive()">querySelectorAll — .active</button>
+            <button onclick="selectComplex()">querySelectorAll — .row .item:first-child</button>
+            <button onclick="resetAll()">Reset</button>
+        </div>
+
+        <div class="code-note">
+            <code>querySelector()</code> — returns the <strong>first match</strong> (or null)<br><br>
+            <code>querySelectorAll()</code> — returns a <strong>static NodeList</strong> of all matches<br><br>
+            Both accept any valid CSS selector: tags, classes, IDs, combinators, pseudo-classes.
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
