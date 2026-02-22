@@ -1,0 +1,114 @@
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f1520;
+    color: #dde8ff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container { max-width: 860px; width: 100%; text-align: center; }
+
+h1 { font-size: 1.8rem; color: #5b9cf6; margin-bottom: 0.3rem; }
+.subtitle { color: #667; margin-bottom: 2rem; font-size: 0.9rem; }
+
+.panels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.panel {
+    background: #131c30;
+    border: 1px solid #1e3050;
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    color: #5b9cf6;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+}
+
+.box {
+    background: #0d1525;
+    border: 1px solid #1e3050;
+    border-radius: 8px;
+    padding: 0.8rem;
+    min-height: 70px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s;
+}
+
+.box strong { color: #5b9cf6; }
+.box .tag { background: #1e3050; padding: 0 4px; border-radius: 3px; font-size: 0.8rem; color: #88aaee; }
+
+.btn-group { display: flex; gap: 0.5rem; }
+
+button {
+    flex: 1;
+    background: #1e3a6e;
+    color: #5b9cf6;
+    border: 1px solid #2a4a8e;
+    padding: 0.45rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+button:hover { background: #2a4a8e; color: white; }
+
+.output {
+    background: #050e1a;
+    border: 1px dashed #2a4a8e;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #88aaee;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    min-height: 56px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.code-note {
+    background: #111;
+    border-left: 3px solid #5b9cf6;
+    border-radius: 6px;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.83rem;
+    color: #aaa;
+    text-align: left;
+    line-height: 1.9;
+}
+
+code {
+    background: #131c30;
+    color: #5b9cf6;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+}
+
+@media (max-width: 600px) {
+    .panels { grid-template-columns: 1fr; }
+    h1 { font-size: 1.3rem; }
+}

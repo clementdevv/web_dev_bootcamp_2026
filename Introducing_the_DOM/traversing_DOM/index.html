@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traversing the DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Traversing the DOM</h1>
+        <p class="subtitle">Navigate the tree: parents, children, and siblings</p>
+
+        <div class="tree-wrapper">
+            <div id="grandparent" class="node grandparent">
+                <span class="node-label">Grandparent</span>
+                <div id="parent" class="node parent">
+                    <span class="node-label">Parent</span>
+                    <div id="child-1" class="node child">Child 1</div>
+                    <div id="child-2" class="node child active-node">Child 2 ← Start here</div>
+                    <div id="child-3" class="node child">Child 3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="goParent()">parentElement</button>
+            <button onclick="goChildren()">children</button>
+            <button onclick="goFirstChild()">firstElementChild</button>
+            <button onclick="goLastChild()">lastElementChild</button>
+            <button onclick="goPrevSibling()">previousElementSibling</button>
+            <button onclick="goNextSibling()">nextElementSibling</button>
+            <button onclick="resetAll()">Reset</button>
+        </div>
+
+        <div id="output" class="output">Click a button to traverse from Child 2...</div>
+
+        <div class="code-note">
+            <code>el.parentElement</code> — the direct parent<br>
+            <code>el.children</code> — HTMLCollection of direct child elements<br>
+            <code>el.firstElementChild</code> / <code>lastElementChild</code> — first/last child<br>
+            <code>el.previousElementSibling</code> / <code>nextElementSibling</code> — adjacent siblings
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

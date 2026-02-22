@@ -1,0 +1,117 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a1520;
+    color: #cce0ff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container { max-width: 620px; width: 100%; text-align: center; }
+h1 { font-size: 2rem; color: #38bdf8; margin-bottom: 0.3rem; }
+.subtitle { color: #446; margin-bottom: 2rem; font-size: 0.95rem; }
+
+.tree-wrapper { margin-bottom: 1.5rem; }
+
+.node {
+    border: 2px solid #1e3a50;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.grandparent { background: #0d1e30; }
+.parent { background: #0e2538; margin-top: 0.75rem; }
+.node-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #446;
+    margin-bottom: 0.5rem;
+}
+
+.child {
+    display: inline-block;
+    background: #0f2d40;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin: 0.3rem;
+    width: calc(33% - 0.6rem);
+    border: 2px solid #1e3a50;
+    transition: all 0.3s;
+}
+
+/* Highlight states */
+.node.highlighted {
+    border-color: #38bdf8;
+    background: #0f3050;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+}
+
+.active-node {
+    border-color: #f59e0b !important;
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+
+button {
+    background: #0f2d40;
+    color: #38bdf8;
+    border: 1px solid #38bdf8;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-family: monospace;
+    transition: all 0.2s;
+}
+button:hover { background: #38bdf8; color: #0a1520; }
+
+.output {
+    background: #060f18;
+    border: 1px dashed #1e3a50;
+    border-radius: 8px;
+    padding: 0.9rem 1.2rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #7dd3fc;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    min-height: 50px;
+}
+
+.code-note {
+    background: #111;
+    border-left: 3px solid #38bdf8;
+    border-radius: 6px;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.83rem;
+    color: #aaa;
+    text-align: left;
+    line-height: 2;
+}
+
+code {
+    background: #0d1e30;
+    color: #38bdf8;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+}

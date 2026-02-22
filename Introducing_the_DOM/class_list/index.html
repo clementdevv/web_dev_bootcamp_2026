@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassList</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>classList</h1>
+        <p class="subtitle">The cleanest way to manage CSS classes on elements</p>
+
+        <div id="demo-card" class="card">
+            <p id="card-label">I'm a plain card. Try the buttons!</p>
+            <p class="class-display">Current classes: <span id="class-list">card</span></p>
+        </div>
+
+        <div class="controls">
+            <button onclick="addClass()">add("highlighted")</button>
+            <button onclick="removeClass()">remove("highlighted")</button>
+            <button onclick="toggleClass()">toggle("active")</button>
+            <button onclick="checkContains()">contains("active")?</button>
+            <button onclick="replaceClass()">replace("card", "card pill")</button>
+            <button onclick="resetCard()">Reset</button>
+        </div>
+
+        <div id="output" class="output">Click a button...</div>
+
+        <div class="code-note">
+            <code>el.classList.add("x")</code> — adds a class<br>
+            <code>el.classList.remove("x")</code> — removes a class<br>
+            <code>el.classList.toggle("x")</code> — adds if absent, removes if present<br>
+            <code>el.classList.contains("x")</code> — returns true/false<br>
+            <code>el.classList.replace("old","new")</code> — swap one class for another
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
