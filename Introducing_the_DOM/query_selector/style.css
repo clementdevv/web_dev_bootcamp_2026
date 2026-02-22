@@ -1,0 +1,95 @@
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #1a0f0f;
+    color: #f0e0e0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container { max-width: 640px; width: 100%; text-align: center; }
+
+h1 { font-size: 2rem; color: #f05a5a; margin-bottom: 0.3rem; }
+h1 span { color: #aaa; }
+.subtitle { color: #666; margin-bottom: 2rem; font-size: 0.95rem; }
+
+.demo-area {
+    background: #1f1212;
+    border: 1px solid #3a1f1f;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.row { display: flex; gap: 0.75rem; }
+
+.item {
+    flex: 1;
+    background: #2a1818;
+    border: 1px solid #3a2020;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.item.active { border-color: #f05a5a; color: #f05a5a; }
+.item#special { border-color: #ffa040; color: #ffa040; }
+.item.last { border-style: dashed; }
+
+.item.highlighted {
+    background: #3a1020;
+    border-color: #ff6b9d;
+    color: #ff6b9d;
+    transform: scale(1.04);
+    box-shadow: 0 0 12px rgba(255, 107, 157, 0.3);
+}
+
+.controls {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    background: #f05a5a;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.2s, transform 0.1s;
+}
+button:hover { background: #c94444; transform: translateY(-1px); }
+
+.code-note {
+    background: #111;
+    border-left: 3px solid #f05a5a;
+    border-radius: 6px;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.85rem;
+    color: #aaa;
+    text-align: left;
+    line-height: 2;
+}
+
+code {
+    background: #2a1818;
+    color: #f08080;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+}
