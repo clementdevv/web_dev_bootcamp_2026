@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName & ClassName</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>getElementsByTagName <span>&</span> ClassName</h1>
+        <p class="subtitle">These return an HTMLCollection of all matching elements</p>
+
+        <div class="demo-area">
+            <h3>Fruits (by tag: &lt;li&gt;)</h3>
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Cherry</li>
+                <li>Date</li>
+            </ul>
+
+            <h3>Cards (by class: .card)</h3>
+            <div class="cards-grid">
+                <div class="card">Card One</div>
+                <div class="card highlight">Card Two</div>
+                <div class="card">Card Three</div>
+                <div class="card highlight">Card Four</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="styleAllListItems()">Style all &lt;li&gt; tags</button>
+            <button onclick="styleByClassName()">Style .card elements</button>
+            <button onclick="resetAll()">Reset</button>
+        </div>
+
+        <div class="code-note">
+            <code>document.getElementsByTagName("li")</code> — all &lt;li&gt; elements<br><br>
+            <code>document.getElementsByClassName("card")</code> — all elements with class "card"<br><br>
+            Both return a <strong>live HTMLCollection</strong>, not an array. Use a loop or spread to iterate.
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

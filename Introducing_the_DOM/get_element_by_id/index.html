@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>getElementById</h1>
+        <p class="subtitle">Selecting a single element by its unique ID</p>
+
+        <div id="demo-box" class="box">
+            <p id="box-text">I'm the original text. Click a button to change me!</p>
+        </div>
+
+        <div class="controls">
+            <button onclick="changeText()">Change Text</button>
+            <button onclick="changeColor()">Change Color</button>
+            <button onclick="toggleVisibility()">Toggle Visibility</button>
+            <button onclick="resetBox()">Reset</button>
+        </div>
+
+        <div class="code-note">
+            <code>document.getElementById("demo-box")</code> — returns the single element with that ID, or <code>null</code> if not found.
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
