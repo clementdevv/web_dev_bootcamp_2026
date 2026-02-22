@@ -1,0 +1,43 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remove & removeChild</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>remove <span>&</span> removeChild</h1>
+        <p class="subtitle">Delete elements from the DOM — two approaches</p>
+
+        <div class="demo-area">
+            <h3>Cards — click one to select, then remove it</h3>
+            <div id="card-grid">
+                <div class="card" id="card-a">Card A</div>
+                <div class="card" id="card-b">Card B</div>
+                <div class="card" id="card-c">Card C</div>
+                <div class="card" id="card-d">Card D</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="removeSelected()">el.remove() — selected card</button>
+            <button onclick="removeChildFirst()">removeChild — first card</button>
+            <button onclick="removeChildLast()">removeChild — last card</button>
+            <button onclick="restoreCards()">Restore All Cards</button>
+        </div>
+
+        <div id="output" class="output">Click a card to select it, then remove it...</div>
+
+        <div class="code-note">
+            <code>el.remove()</code> — modern, called directly on the element. No parent needed.<br>
+            <code>parent.removeChild(el)</code> — classic method. Must be called on the <em>parent</em>, passing the child. Returns the removed node.
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
