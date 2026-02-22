@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>append & appendChild</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>append <span>&</span> appendChild</h1>
+        <p class="subtitle">Add new elements and content into the DOM</p>
+
+        <div class="demo-area">
+            <h3>Live List</h3>
+            <ul id="item-list">
+                <li>Existing Item 1</li>
+                <li>Existing Item 2</li>
+            </ul>
+        </div>
+
+        <div class="input-row">
+            <input type="text" id="item-input" placeholder="Enter item text..." />
+        </div>
+
+        <div class="controls">
+            <button onclick="useAppendChild()">appendChild (new &lt;li&gt;)</button>
+            <button onclick="useAppend()">append (text node)</button>
+            <button onclick="appendMultiple()">append multiple at once</button>
+            <button onclick="prependItem()">prepend (add to front)</button>
+            <button onclick="resetList()">Reset</button>
+        </div>
+
+        <div class="code-note">
+            <code>parent.appendChild(el)</code> — adds a single Node to the end. Returns the appended element.<br>
+            <code>parent.append(el, "text", ...)</code> — newer, adds multiple Nodes OR strings. Returns undefined.<br>
+            <code>parent.prepend(...)</code> — same as append but inserts at the BEGINNING.
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
