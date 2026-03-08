@@ -1,0 +1,3 @@
+- ls -> stands for list; it lists all directories within the current directory
+- pwd -> stands for print working directory; it outputs the path to the current directory
+- cd -> stands for change directory; it allows one to move from the current directory to another one
