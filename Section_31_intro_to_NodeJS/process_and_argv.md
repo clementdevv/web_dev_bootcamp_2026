@@ -1,28 +1,31 @@
+# process and argv in Node.js
 
-# What is Node.js?
+Node.js provides a global object called **process** that contains
+information about the current Node.js program and its environment.
 
-**Node.js** is a runtime environment that allows JavaScript to run **outside the browser**.
+One commonly used property is **process.argv**.
 
-Before Node.js, JavaScript was mainly used in web browsers to make webpages interactive.  
-Node.js makes it possible to use JavaScript to build **backend and server-side applications**.
+## What is process.argv?
 
-## Key Idea
+**process.argv** is an array that stores the command-line arguments
+passed when running a Node.js script.
 
-Node.js uses the **V8 JavaScript engine** (the same engine used by Chrome) to execute JavaScript on your computer.
+Example command:
 
-## What You Can Build With Node.js
+node app.js hello world
 
-- Web servers
-- APIs
-- Command-line tools
-- Real-time applications (chat, streaming)
-- Backend services
+## What the array contains
 
-## Why Developers Use Node.js
+process.argv[0] → path to the Node executable  
+process.argv[1] → path to the script file  
+process.argv[2+] → arguments provided by the user
 
-- Use **JavaScript everywhere** (frontend + backend)
-- **Fast and efficient**
-- **Event-driven and non-blocking**
-- Large ecosystem through **npm**
+Example:
 
-In short, **Node.js lets JavaScript run on the server instead of only in the browser.**
+console.log(process.argv);
+
+Output may look like:
+
+["/usr/bin/node", "/app.js", "hello", "world"]
+
+This allows Node.js programs to accept **user input from the terminal**.
