@@ -1,0 +1,1 @@
+- Check a folder named Yelp_project: that's the folder for the progressive project in this tutorial series 
