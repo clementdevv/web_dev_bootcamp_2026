@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+    body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
+    .farm-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+    .organic-badge { background: #4CAF50; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; }
+    .btn { display: inline-block; padding: 5px 10px; background: #007bff; color: white; text-decoration: none; border-radius: 3px; }
+    .btn-add { background: #28a745; }
+  </style>
+</head>
+<body>
+  <h1>Farms</h1>
+  <a href="/farms/new" class="btn btn-add">+ Add New Farm</a>
+  
+  <% if (farms.length === 0) { %>
+    <p>No farms yet. Create your first farm!</p>
+  <% } else { %>
+    <% farms.forEach(farm => { %>
+      <div class="farm-card">
+        <h2><%= farm.name %> 
+          <% if (farm.isOrganic) { %>
+            <span class="organic-badge">Organic</span>
+          <% } %>
+        </h2>
+        <p><strong>Location:</strong> <%= farm.location %></p>
+        <p><strong>Products:</strong> <%= farm.products.length %></p>
+        <a href="/farms/<%= farm._id %>" class="btn">View Details</a>
+      </div>
+    <% }) %>
+  <% } %>
+</body>
+</html>

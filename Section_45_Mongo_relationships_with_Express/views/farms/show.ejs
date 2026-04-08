@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .farm-header {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+        }
+
+        .btn-warning {
+            background: #ffc107;
+            color: black;
+        }
+
+        .btn-sm {
+            font-size: 12px;
+            padding: 3px 8px;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/farms">← Back to Farms</a>
+
+    <div class="farm-header">
+        <h1>
+            <%= farm.name %>
+                <% if (farm.isOrganic) { %>🌱 Organic<% } %>
+        </h1>
+        <p><strong>Location:</strong>
+            <%= farm.location %>
+        </p>
+        <p><strong>Established:</strong>
+            <%= farm.establishedYear || 'Not specified' %>
+        </p>
+        <p><strong>Description:</strong>
+            <%= farm.description || 'No description' %>
+        </p>
+        <p><strong>Total Products:</strong>
+            <%= farm.products.length %>
+        </p>
+
+        <a href="/farms/<%= farm._id %>/edit" class="btn btn-warning">Edit Farm</a>
+        <a href="/farms/<%= farm._id %>/products/new" class="btn">+ Add Product</a>
+    </div>
+
+    <h2>Products from <%= farm.name %>
+    </h2>
+
+    <!-- <form action="/farms/<%= farm._id %>?_method=DELETE" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-danger"
+            onclick="return confirm('⚠️ WARNING: This will delete the farm AND ALL its products! Are you sure?')">
+            Delete Farm & All Products
+        </button>
+    </form> -->
+
+    <% if (farm.products.length===0) { %>
+        <p>No products yet. <a href="/farms/<%= farm._id %>/products/new">Add your first product</a></p>
+        <% } else { %>
+            <% farm.products.forEach(product=> { %>
+                <div class="product-card">
+                    <h3>
+                        <%= product.name %>
+                    </h3>
+                    <p>Price: $<%= product.price %>
+                    </p>
+                    <p>Category: <%= product.category %>
+                    </p>
+                    <p>Status: <%= product.inStock ? '✅ In Stock' : '❌ Out of Stock' %>
+                    </p>
+                    <a href="/products/<%= product._id %>/edit" class="btn btn-sm">Edit</a>
+                    <form action="/products/<%= product._id %>?_method=DELETE" method="POST" style="display: inline;">
+                        <button type="submit" class="btn btn-danger btn-sm"
+                            onclick="return confirm('Delete this product?')">Delete</button>
+                    </form>
+                </div>
+                <% }) %>
+                    <% } %>
+</body>
+
+</html>
