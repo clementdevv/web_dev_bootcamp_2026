@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Dashboard</title>
+    <style>
+        body { font-family: Arial; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .test-section { background: #f4f4f4; margin: 20px 0; padding: 20px; border-radius: 5px; }
+        .test-btn { background: #007bff; color: white; padding: 10px 20px; margin: 5px; border: none; cursor: pointer; border-radius: 3px; }
+        .test-btn:hover { background: #0056b3; }
+        .result { background: white; padding: 10px; margin-top: 10px; border-left: 3px solid #007bff; font-family: monospace; }
+        .success { border-left-color: green; color: green; }
+        .error { border-left-color: red; color: red; }
+        pre { overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Express Router & Cookies Test Dashboard</h1>
+    
+    <div class="test-section">
+        <h2>1. Router Tests</h2>
+        <button class="test-btn" onclick="testRouter('users/profile')">Test Users Router</button>
+        <button class="test-btn" onclick="testRouter('products')">Test Products Router</button>
+        <button class="test-btn" onclick="testRouter('api/v1/users')">Test API v1</button>
+        <button class="test-btn" onclick="testRouter('api/v2/users')">Test API v2</button>
+        <div id="router-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Cookie Tests</h2>
+        <button class="test-btn" onclick="testCookie('set')">Set Cookie</button>
+        <button class="test-btn" onclick="testCookie('read')">Read Cookies</button>
+        <button class="test-btn" onclick="testCookie('multiple')">Set Multiple</button>
+        <button class="test-btn" onclick="testCookie('clear')">Clear Cookies</button>
+        <div id="cookie-result" class="result"></div>
+        <div id="cookie-display" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Signed Cookie Tests</h2>
+        <button class="test-btn" onclick="testSignedCookie('set')">Set Signed Cookie</button>
+        <button class="test-btn" onclick="testSignedCookie('read')">Read Signed Cookie</button>
+        <button class="test-btn" onclick="testSignedCookie('tamper')">Attempt Tamper</button>
+        <div id="signed-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Authentication Tests</h2>
+        <button class="test-btn" onclick="testAuth('no-token')">No Token (Should Fail)</button>
+        <button class="test-btn" onclick="testAuth('valid-token')">Valid Token</button>
+        <button class="test-btn" onclick="testAuth('invalid-token')">Invalid Token</button>
+        <div id="auth-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. Rate Limit Test</h2>
+        <button class="test-btn" onclick="testRateLimit()">Send 15 Requests</button>
+        <div id="rate-result" class="result"></div>
+    </div>
+    
+    <script>
+        async function testRouter(endpoint) {
+            const resultDiv = document.getElementById('router-result');
+            try {
+                const response = await fetch(`/${endpoint}`);
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                resultDiv.className = 'result success';
+            } catch (err) {
+                resultDiv.innerHTML = `Error: ${err.message}`;
+                resultDiv.className = 'result error';
+            }
+        }
+        
+        async function testCookie(action) {
+            const resultDiv = document.getElementById('cookie-result');
+            const displayDiv = document.getElementById('cookie-display');
+            
+            if (action === 'set') {
+                const response = await fetch('/users/cookies-demo/session');
+                const data = await response.json();
+                resultDiv.innerHTML = `✅ Session cookie set: ${JSON.stringify(data)}`;
+                resultDiv.className = 'result success';
+            } else if (action === 'read') {
+                const response = await fetch('/users/cookies');
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                resultDiv.className = 'result success';
+                displayDiv.innerHTML = `<strong>document.cookie:</strong> ${document.cookie || '(none)'}`;
+            } else if (action === 'multiple') {
+                const response = await fetch('/users/cookies-demo/multiple');
+                const data = await response.json();
+                resultDiv.innerHTML = `✅ ${data.message}`;
+                resultDiv.className = 'result success';
+            } else if (action === 'clear') {
+                const response = await fetch('/users/cookies-demo/clear');
+                const data = await response.json();
+                resultDiv.innerHTML = `✅ ${data.message}`;
+                resultDiv.className = 'result success';
+            }
+        }
+        
+        async function testSignedCookie(action) {
+            const resultDiv = document.getElementById('signed-result');
+            
+            if (action === 'set') {
+                const response = await fetch('/signed-cookies/signed');
+                const data = await response.json();
+                resultDiv.innerHTML = `✅ Signed cookie set: ${data.message}`;
+                resultDiv.className = 'result success';
+            } else if (action === 'read') {
+                const response = await fetch('/signed-cookies/read');
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                resultDiv.className = 'result success';
+            } else if (action === 'tamper') {
+                // Try to tamper with cookie
+                document.cookie = "userId=99999; path=/";
+                const response = await fetch('/signed-cookies/read');
+                const data = await response.json();
+                if (!data.signedCookies.userId && data.unsignedCookies.userId) {
+                    resultDiv.innerHTML = '✅ Tamper detected! Signed cookie invalid, unsigned version exists.';
+                    resultDiv.className = 'result success';
+                } else {
+                    resultDiv.innerHTML = '⚠️ Tamper test completed. Check results above.';
+                }
+            }
+        }
+        
+        async function testAuth(type) {
+            const resultDiv = document.getElementById('auth-result');
+            let headers = {};
+            
+            if (type === 'valid-token') {
+                headers = { 'Authorization': 'secret123' };
+            } else if (type === 'invalid-token') {
+                headers = { 'Authorization': 'wrong-token' };
+            }
+            
+            try {
+                const response = await fetch('/admin/dashboard', { headers });
+                const data = await response.json();
+                
+                if (type === 'no-token' && response.status === 401) {
+                    resultDiv.innerHTML = '✅ No token: Correctly blocked (401)';
+                    resultDiv.className = 'result success';
+                } else if (type === 'valid-token' && response.status === 200) {
+                    resultDiv.innerHTML = `✅ Valid token: Access granted<br><pre>${JSON.stringify(data, null, 2)}</pre>`;
+                    resultDiv.className = 'result success';
+                } else if (type === 'invalid-token' && response.status === 403) {
+                    resultDiv.innerHTML = '✅ Invalid token: Correctly blocked (403)';
+                    resultDiv.className = 'result success';
+                } else {
+                    resultDiv.innerHTML = `⚠️ Unexpected response: Status ${response.status}`;
+                    resultDiv.className = 'result error';
+                }
+            } catch (err) {
+                resultDiv.innerHTML = `Error: ${err.message}`;
+                resultDiv.className = 'result error';
+            }
+        }
+        
+        async function testRateLimit() {
+            const resultDiv = document.getElementById('rate-result');
+            let rateLimited = false;
+            let successCount = 0;
+            
+            resultDiv.innerHTML = 'Testing rate limit... Sending 15 requests<br>';
+            
+            for (let i = 1; i <= 15; i++) {
+                const response = await fetch('/api/v1/users');
+                if (response.status === 429) {
+                    rateLimited = true;
+                    resultDiv.innerHTML += `Request ${i}: ⚠️ Rate limited!<br>`;
+                    break;
+                } else if (response.status === 200) {
+                    successCount++;
+                    resultDiv.innerHTML += `Request ${i}: ✅ Success<br>`;
+                }
+            }
+            
+            if (rateLimited) {
+                resultDiv.innerHTML += `<br>✅ Rate limiting works! Limited after ${successCount} successful requests.`;
+                resultDiv.className = 'result success';
+            } else {
+                resultDiv.innerHTML += `<br>⚠️ Rate limit not triggered after 15 requests`;
+                resultDiv.className = 'result error';
+            }
+        }
+        
+        // Display initial cookies
+        document.getElementById('cookie-display').innerHTML = `<strong>Current cookies:</strong> ${document.cookie || '(none)'}`;
+    </script>
+</body>
+</html>
