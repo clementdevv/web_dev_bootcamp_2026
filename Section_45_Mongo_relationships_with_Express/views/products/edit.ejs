@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: 0 auto; padding: 20px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+    button { background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Edit <%= product.name %></h1>
+  
+  <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+    <div class="form-group">
+      <label>Product Name</label>
+      <input type="text" name="name" value="<%= product.name %>" required>
+    </div>
+    
+    <div class="form-group">
+      <label>Price</label>
+      <input type="number" name="price" value="<%= product.price %>" step="0.01" required>
+    </div>
+    
+    <div class="form-group">
+      <label>Category</label>
+      <select name="category">
+        <option value="fruit" <%= product.category === 'fruit' ? 'selected' : '' %>>Fruit</option>
+        <option value="vegetable" <%= product.category === 'vegetable' ? 'selected' : '' %>>Vegetable</option>
+        <option value="dairy" <%= product.category === 'dairy' ? 'selected' : '' %>>Dairy</option>
+        <option value="meat" <%= product.category === 'meat' ? 'selected' : '' %>>Meat</option>
+        <option value="grain" <%= product.category === 'grain' ? 'selected' : '' %>>Grain</option>
+        <option value="poultry" <%= product.category === 'poultry' ? 'selected' : '' %>>Poultry</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label>
+        <input type="checkbox" name="inStock" value="true" <%= product.inStock ? 'checked' : '' %>>
+        In Stock
+      </label>
+    </div>
+    
+    <button type="submit">Update Product</button>
+    <a href="/farms/<%= product.farm._id %>">Cancel</a>
+  </form>
+</body>
+</html>
